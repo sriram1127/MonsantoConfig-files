@@ -1,0 +1,8 @@
+npm view package-name
+
+npm ls -g
+
+https://gist.github.com/martinheidegger/5554941
+
+https://gist.github.com/LeCoupa/0d86f3fbe1de2593754ds
+

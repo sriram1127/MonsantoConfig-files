@@ -1,0 +1,6 @@
+{"user-provided":[{"credentials":{"cn":"OracleContext,dc=monsanto,dc=com","dbname":"RTST1_blkld","oracleldapserver":"stpoid.monsanto.com","oracleldapport":"3060","username":"WRK_BREED_DATA_USER","encrypted.password":"TzNWN0Q4X0gxSjJaNA==","alias":"WRK_BREED"},"label":null,"name":"WRK_BREED_RST","syslog_drain_url":null,"tags":null}]}
+
+
+cf push -b https://github.com/cloudfoundry/nodejs-buildpack prestige-ui -m 128M  -p "${WORKSPACE}" || (cf logout; exit 1)
+cf start prestige-ui || (cf logout; exit 1)
+cf logout

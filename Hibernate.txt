@@ -1,0 +1,63 @@
+Take cares persistence of the data
+ORM
+Caching
+Eager loading/Lazy loading
+N+1 Problem
+get vs load
+save vs persist
+Proxy design pattern
+2nd level like Ehcache
+Session object is not thread safe, 1st level cache
+SessionFactory - immutable, thread safe, 2nd level cache, single instance in hibernate application
+save or saveorupdate
+criterian object 
+HQL oop extension to SQL
+merge() and update()
+<property name=”show_sql”> true </property>
+
+clear vs evict
+
+The Hibernate persistent or entity object can live in following three states:
+1) transient
+2) persistent
+3) detached
+
+Sorted Collection - heap memory -OutofMemoryError
+Ordered Collection - Database
+
+
+<prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop>  
+<prop key="hibernate.hbm2ddl.auto">update</prop>  
+<prop key="hibernate.show_sql">true</prop> 
+
+<-- Enable Hibernate's automatic session context management -->
+<property name="current_session_context_class">thread</property>
+
+<!-- JDBC connection pool, use Hibernate internal connection pool -->
+<property name="connection.pool_size">5</property>
+
+
+
+
+--------------------------------------------------------------------------------------------------
+Criteria is a simplified API
+
+List books = session.createCriteria(Book.class)
+ .add(Restrictions.like("name", "java%") )
+ .add(Restrictions.like("published_year", "2015"))
+ .addOrder(Order.asc("name") ) .list();\
+ 
+--------------------------------------------------------------------------------------------------
+ 
+(((A='X') and (B in('X',Y))) or ((A='Y') and (B='Z')))
+ 
+Criteria criteria = getSession().createCriteria(clazz); 
+Criterion rest1= Restrictions.and(Restrictions.eq(A, "X"), 
+           Restrictions.in("B", Arrays.asList("X",Y)));
+Criterion rest2= Restrictions.and(Restrictions.eq(A, "Y"), 
+           Restrictions.eq(B, "Z"));
+criteria.add(Restrictions.or(rest1, rest2));
+
+--------------------------------------------------------------------------------------------------
+getCurrentSession vs openSession
+

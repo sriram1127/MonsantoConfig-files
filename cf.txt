@@ -1,0 +1,12 @@
+cf login --skip-ssl-validation --sso -a https://api.mcf-np.threega.com -o breeding -s global
+https://login.mcf-np.threega.com/passcode
+cf apps
+cf logs prestige-ui --recent
+cf restage prestige-ui
+cf cups velocity-home -p "alias,value"
+cf service velocity-home
+cf bind-service prestige-ui velocity-home
+cf env prestige-ui
+cf unbind-service prestige-ui velocity-home
+cf delete-service velocity-home
+cf services
